@@ -1,0 +1,58 @@
+{
+  "emberekLISTA": [
+    {
+      "nev": "Jenő",
+      "kor": 23,
+      "nem": true,
+      "id": "2eda"
+    },
+    {
+      "nev": "Juli",
+      "kor": 33,
+      "nem": false,
+      "id": "694d"
+    },
+    {
+      "nev": "Géza",
+      "kor": 13,
+      "nem": true,
+      "id": "8328"
+    },
+    {
+      "nev": "Béla",
+      "kor": 45,
+      "nem": true,
+      "id": "62dd"
+    },
+    {
+      "nev": "Ádám",
+      "kor": 66,
+      "nem": true,
+      "id": "4c01"
+    },
+    {
+      "nev": "Éva",
+      "kor": 27,
+      "nem": false,
+      "id": "b9c4"
+    },
+    {
+      "nev": "Noé",
+      "kor": 12,
+      "nem": true,
+      "id": "6d50"
+    },
+    {
+      "id": "9089"
+    },
+    {
+      "id": "a2ed"
+    },
+    {
+      "id": "5efb"
+    },
+    {
+      "id": "6b39"
+    }
+  ]
+}

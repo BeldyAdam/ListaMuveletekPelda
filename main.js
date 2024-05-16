@@ -1,7 +1,8 @@
-import { emberekLISTA } from "./adat.js";
+/* import { emberekLISTA } from "./adat.js"; */
 import { megjelenit, tablazatLetrehoz } from "./fuggvenyek.js";
 import { rendez, szures, torol } from "./adatKezelo.js";
 import { sorBeszur } from "./urlapKezelo.js";
+import { getAdat } from "./asszinkron.js";
     /*
     jelenisuk meg az adatainkat egy tablazatban az adatk divben
     az urlap div-ben legyen egy urlap, amivel ilyen adatokat tudunk a tablazatba beletenni
@@ -30,22 +31,24 @@ import { sorBeszur } from "./urlapKezelo.js";
     
     */
     let rIrany = 1;
-    init(emberekLISTA);
+    getAdat("http://localhost:3000/emberekLISTA", init);
+/*     init(emberekLISTA); */
     szuresNevSzerint();
-    sorBeszur(emberekLISTA);
+    sorBeszur("http://localhost:3000/emberekLISTA");
 
     export function init(lista){
         var txt = tablazatLetrehoz(lista);
         megjelenit(txt);
         rendezesEsemeny();
         torolEsemeny();
+        sorBeszur(lista);
     }
 
     function szuresNevSzerint(){
         const szuroElem = $("#sznev");
         szuroElem.on("keyup", function(){
             let szoveg = szuroElem.val();
-            init(szures(emberekLISTA, szoveg));
+            init(szures("http://localhost:3000/emberekLISTA", szoveg));
         });
     }
 
@@ -57,7 +60,7 @@ import { sorBeszur } from "./urlapKezelo.js";
         /* ha rákattintunk a táblázat fejlécében lévő név mezőre */
         const nevMezoElem = $(".adatok table th").eq(0);
         nevMezoElem.on("click", function(){
-            const lista = rendez(emberekLISTA, "nev", rIrany);
+            const lista = rendez("http://localhost:3000/emberekLISTA", "nev", rIrany);
             console.log(lista);
             init(lista);
             rIrany*=-1;
@@ -69,9 +72,9 @@ import { sorBeszur } from "./urlapKezelo.js";
     function torolEsemeny(){
         const torolELEM =$(".torol");
         torolELEM.on("click", function(event){
-            let index = event.target.id;
+            let index = elem.id;
             /*              ^^az az elem,amelyik kivaltotta az esemenyt  */
-            const LISTA = torol(emberekLISTA, index);
+            const LISTA = torol("http://localhost:3000/emberekLISTA", index);
             init(LISTA);
         });
     }
